@@ -1,0 +1,168 @@
+/* -----------------------------
+   Cart Glassmorphism Style - Dark Violet Theme
+-------------------------------*/
+
+/* Container for the cart page */
+.cart-container {
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+
+  /* Dark violet gradient background */
+  background: linear-gradient(135deg, #1a1a2e, #2c2c54 25%, #3f3f70 50%, #5a4bdc 75%, #7a6fff 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.cart-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+
+  /* Subtle radial light pattern */
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(255,255,255,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 45% 10%, rgba(255,255,255,0.04) 0%, transparent 50%);
+}
+
+/* Empty cart message */
+.cart-empty {
+  text-align: center;
+  color: #f0f0ff;
+  font-size: 2rem;
+  margin-top: 50px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ProductList grid */
+.ProductList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual cart item (Product) */
+.Product {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 25px;
+  border-radius: 20px;
+
+  /* Dark violet gradient tile */
+  background: linear-gradient(135deg, #2c2c54, #3f3f70 80%);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(120,120,150,0.25);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.1), inset 0 -1px 2px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.Product::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(127,110,255,0.4), rgba(112,105,255,0.4), rgba(90,75,220,0.4), transparent);
+}
+
+.Product:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, #3f3f70, #5a4bdc 80%);
+  border-color: rgba(148,163,184,0.4);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25), 0 15px 30px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255,255,255,0.2), inset 0 -1px 2px rgba(255,255,255,0.1);
+}
+
+/* Product content */
+.Product h3 {
+  color: rgba(240,240,255,0.95);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.Product h3 mark {
+  background: linear-gradient(135deg, #5a4bdc, #7a6fff);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.Product p {
+  color: rgba(240,240,255,0.75);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Delete button */
+.Product button {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  cursor: pointer;
+  border: 1px solid rgba(120,120,150,0.4);
+  background: rgba(51,65,85,0.7);
+  color: #f8fafc;
+  backdrop-filter: blur(10px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.Product button:hover {
+  background: rgba(71,85,105,0.8);
+  transform: translateY(-2px);
+  border-color: rgba(120,120,150,0.5);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.Product button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ProductList {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .Product {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ProductList {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .Product {
+    padding: 20px 15px;
+  }
+}
+
+.cart-link {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0b20df, #4d7cff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-link:hover {
+  background: linear-gradient(135deg, #4b48fd, #fc2424);
+  transform: scale(1.05);
+}
