@@ -86,7 +86,7 @@ function Signup(props) {
     };
     
     try {
-      const res = await axios.post("http://127.0.0.1:8000/users/", newUser);
+      const res = await axios.post("https://ecommerce-backend-7kfm.onrender.com/users/", newUser);
       const res_data = res.data;
       setuserName("");
       setPassword("");

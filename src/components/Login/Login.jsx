@@ -73,7 +73,7 @@ function Login(props) {
   async function HandleLogin(e) {
     e.preventDefault();
     try {
-      const res = await axios.get("http://127.0.0.1:8000/users/");
+      const res = await axios.get("https://ecommerce-backend-7kfm.onrender.com/users/");
       const res_data = res.data;
       const matched = res_data.find((user) =>
         user.user_name === userName && user.user_password === password

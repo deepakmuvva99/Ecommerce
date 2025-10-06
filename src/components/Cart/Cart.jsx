@@ -53,7 +53,7 @@ export function Cart(props) {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/cart/');
+                const response = await axios.get('https://ecommerce-backend-7kfm.onrender.com/cart/');
                 props.setCartItems(
                     response.data.filter(item => item.user_name === props.userLogged)
                 );
@@ -68,7 +68,7 @@ export function Cart(props) {
     // Delete cart item
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://127.0.0.1:8000/cart/${id}/`);
+            await axios.delete(`https://ecommerce-backend-7kfm.onrender.com/cart/${id}/`);
             props.setCartItems(prev => prev.filter(item => item.cart_itemId !== id));
         } catch (err) {
             console.error(err);

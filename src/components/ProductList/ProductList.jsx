@@ -16,7 +16,7 @@ export function ProductList(props) {
     useEffect(() => {
         const fetchDisplay = async () => {
             try {
-                const res = await axios.get('http://127.0.0.1:8000/books/');
+                const res = await axios.get('https://ecommerce-backend-7kfm.onrender.com/books/');
                 props.setProducts(res.data);
             } catch (err) {
                 console.error(err);
