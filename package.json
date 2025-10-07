@@ -1,13 +1,13 @@
 {
   "name": "client",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite preview --port $PORT --host"
   },
   "dependencies": {
     "axios": "^1.12.2",
