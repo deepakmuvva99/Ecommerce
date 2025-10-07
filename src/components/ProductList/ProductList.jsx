@@ -78,7 +78,7 @@ export function ProductList(props) {
                             };
                             console.log("Sending cart item:", cartItem);
                             try {
-                                await axios.post('http://127.0.0.1:8000/cart/', cartItem);
+                                await axios.post('https://ecommerce-backend-7kfm.onrender.com/cart/', cartItem);
                             } catch (err) {
                                 console.error(err);
                             }

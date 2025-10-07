@@ -1,220 +1,159 @@
-/* -----------------------------
-   App-like Product Catalog Style
-------------------------------- */
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  min-height: 100%;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: #f4f4f8;
-  color: #1c1c2b;
-}
-
-/* -----------------------------
-   Container
-------------------------------- */
+/* ====== Overall Page Layout ====== */
 .productlist-container {
-  padding: 20px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  font-family: 'Poppins', sans-serif;
+  color: #1f2937;
+  padding: 2rem;
 }
 
-/* Header */
+/* ====== Header Section ====== */
 .productlist-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .productlist-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #2a235a;
-  margin-bottom: 10px;
+  color: white;
+  margin-bottom: 0.5rem;
 }
 
-/* Navigation Bar */
+/* ====== Navigation Bar (Welcome, Cart, Logout) ====== */
 .productlist-nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  background: #fff;
-  padding: 12px 18px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-  margin-bottom: 20px;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
 }
 
 .welcome-text {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #2c264d;
-  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
 }
 
-/* Buttons Container */
 .nav-buttons {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* Common Nav Button Styling */
-.nav-buttons .nav-button {
-  min-width: 150px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  text-decoration: none; /* for Link */
-  text-align: center;
+  gap: 1rem;
 }
 
-.addcart-button {
-  padding: 12px 30px;
-  border: none;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #0b20df, #4d7cff);
-  color: #fff;
+.cart-link {
+  text-decoration: none;
+  background: white;
+  color: #ff5e62;
   font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 150px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 0.6rem;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-/* Add to Cart Button
-.addcart-button {
-  background: linear-gradient(135deg, #0b20df, #4d7cff);
+.cart-link:hover {
+  background: #ff5e62;
   color: #fff;
-} */
-
-.addcart-button:hover {
-  background: linear-gradient(135deg, #4b48fd, #0b20df);
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
-/* Logout Button */
+/* Cart count badge */
+.cart-badge {
+  color: #ff5e62;
+  font-weight: 700;
+}
+
+/* Logout button */
 .logout-button {
-   padding: 12px 30px;
+  background: white;
+  color: #ff5e62;
   border: none;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #df0b0b, #ff4d4d);
-  color: #fff;
   font-weight: 600;
-  font-size: 0.95rem;
+  border-radius: 0.6rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 150px;
 }
 
 .logout-button:hover {
-  background: linear-gradient(135deg, #ff4d4f, #ff1a1a);
-  transform: scale(1.05);
+  background: #ff5e62;
+  color: white;
+  transform: translateY(-2px);
 }
 
-/* Cart Badge */
-.cart-badge {
-  color: #fff;
-  font-weight: bold;
-  margin-left: 6px;
-}
-
-/* -----------------------------
-   Product Grid
-------------------------------- */
+/* ====== Product Grid ====== */
 .ProductList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-/* -----------------------------
-   Product Card (App-like)
-------------------------------- */
+/* ====== Individual Product Card ====== */
 .Product {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.Product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
-/* Image Placeholder */
-.Product::before {
-  content: '';
-  width: 100%;
-  height: 150px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #e7e4ff, #d1ccff);
-  margin-bottom: 12px;
-}
-
-/* Product Info */
-.Product h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-  color: #2a235a;
-  text-align: left;
-}
-
-.Product p {
-  font-size: 0.85rem;
-  color: #555;
-  margin-bottom: 12px;
-  flex-grow: 1;
-  text-align: left;
-}
-
-/* Centered Price */
-.Product mark {
-  background: none;
-  color: #4b39c9;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 12px 0;
-  display: block;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
   text-align: center;
 }
 
-/* Add to Cart Button (inside Product Card) */
-.Product button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #6a4df5, #4b39c9);
-  color: #fff;
-  font-weight: 600;
+.Product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.Product h3 {
+  color: #ff5e62;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.Product p {
+  color: #4b5563;
   font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+mark {
+  background: none;
+  color: #ff5e62;
+  font-weight: bold;
+}
+
+/* Add to cart button */
+.Product button {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .Product button:hover {
-  background: linear-gradient(135deg, #4b39c9, #6a4df5);
-  transform: scale(1.03);
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  transform: scale(1.05);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 600px) {
+  .productlist-container {
+    padding: 1rem;
+  }
+
+  .productlist-title {
+    font-size: 1.8rem;
+  }
+
+  .Product {
+    padding: 1.2rem;
+  }
 }
